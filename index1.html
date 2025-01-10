@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #474f8f;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #clock {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #3c4485;
+            border: 18px solid #1f2347;
+            border-radius: 50%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        #clock::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        .number {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform-origin: center center;
+        }
+        .number span {
+            display: inline-block;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #dbe7fd;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        #hour, #minute, #second {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: center center;
+        }
+        #hour::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 80px;
+            background-color: #07F3DF;
+            top: 50px;
+            left: calc(50% - 4px);
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #minute::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 100px;
+            background-color: #ded4fd;
+            top: 30px;
+            left: calc(50% - 3px);
+            border-radius: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #second::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 120px;
+            background-color: #fD2E62;
+            top: 10px;
+            left: calc(50% - 1px);
+            border-radius: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes rotate-hour {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotate-minute {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotate-second {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        #hour {
+            animation: rotate-hour 43200s linear infinite;
+        }
+        #minute {
+            animation: rotate-minute 3600s linear infinite;
+        }
+        #second {
+            animation: rotate-second 60s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <div class="number" style="transform: rotate(30deg);"><span>1</span></div>
+        <div class="number" style="transform: rotate(60deg);"><span>2</span></div>
+        <div class="number" style="transform: rotate(90deg);"><span>3</span></div>
+        <div class="number" style="transform: rotate(120deg);"><span>4</span></div>
+        <div class="number" style="transform: rotate(150deg);"><span>5</span></div>
+        <div class="number" style="transform: rotate(180deg);"><span>6</span></div>
+        <div class="number" style="transform: rotate(210deg);"><span>7</span></div>
+        <div class="number" style="transform: rotate(240deg);"><span>8</span></div>
+        <div class="number" style="transform: rotate(270deg);"><span>9</span></div>
+        <div class="number" style="transform: rotate(300deg);"><span>10</span></div>
+        <div class="number" style="transform: rotate(330deg);"><span>11</span></div>
+        <div class="number" style="transform: rotate(0deg);"><span>12</span></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+</body>
+</html>
